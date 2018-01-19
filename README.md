@@ -1,0 +1,2 @@
+# ubuntu
+soft for ubuntu
