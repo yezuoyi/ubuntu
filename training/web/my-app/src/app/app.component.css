@@ -1,0 +1,17 @@
+.menu {
+    height:30px;  
+}
+.menu li{
+  float: left; 
+  width: 120px;
+  font-size: 18px;
+  line-height: 30px;
+  height:30px;
+  list-style-type:none;
+}
+.redBorder{
+  border:1px solid red;
+}
+.blueFont{
+  color: red;
+}

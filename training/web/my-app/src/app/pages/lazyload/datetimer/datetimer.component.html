@@ -1,0 +1,27 @@
+Hello DatatimerComponent! 
+<div style="margin-top: 50px;">
+    <div class="form-horizontal">
+        <div class="row form-group">
+            <label class="col-sm-2 control-label">单个日期</label>
+            <div class="col-sm-2">
+                <date-picker name="pickTime1" [singleDatePicker]="true" (onInputChanged)="onInputChanged($event)"></date-picker>
+            </div>
+            <div class="col-sm-1"></div>
+            <label class="col-sm-2 control-label">单个日期 带分秒时</label>
+            <div class="col-sm-2">
+                <date-picker name="pickTime2" [showTime]="true" [singleDatePicker]="true" (onInputChanged)="onInputChanged($event)"></date-picker>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-sm-2 control-label">起始结束日期 不带分秒时</label>
+            <div class="col-sm-2">
+                <date-picker name="pickTime3" (onInputChanged)="onInputChanged($event)"></date-picker>
+            </div>
+            <div class="col-sm-1"></div>
+            <label class="col-sm-2 control-label">起始结束日期 带分秒时</label>
+            <div class="col-sm-2">
+                <date-picker name="pickTime4" [showTime]="true"   (onInputChanged)="onInputChanged($event)"></date-picker>
+            </div>
+        </div>
+    </div>
+</div>

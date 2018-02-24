@@ -1,0 +1,23 @@
+Hello ModalComponent!
+<button (click)="showModal(modal1)">显示模态1</button>
+<button (click)="showModal(modal2)">显示模态2</button>
+
+<eda-modal #modal1>
+    <div class="body">
+        模态1内容
+    </div>
+</eda-modal>
+
+<eda-modal #modal2  [width]="400" [height]="200"
+           [showCloseBtn]="false"
+           [title]="'标题'"
+           [confirmName]="'确定'"
+           [cancelName]="'取消'"
+           (confirmEmitter)="confirmEmitter(modal2)">
+    <div class="body">
+        模态2内容
+    </div>
+    <div class="errormsg">
+        出错信息
+    </div>
+</eda-modal>

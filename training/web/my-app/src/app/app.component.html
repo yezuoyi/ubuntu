@@ -1,0 +1,40 @@
+<h1>{{title}}</h1>
+
+<input type="text" [ngModel]="title" focusOnInit>
+
+<input type="radio" name="sex" value="1" [checked]="sex==1" (change)="changeSex(1)">男
+<input type="radio" name="sex" value="0" [checked]="sex==0" (change)="changeSex(0)">女
+
+<div *ngIf="sex==1">
+  <input type="checkbox" name="hobby" value="0" [checked]="hobby==0">篮球
+  <input type="checkbox" name="hobby" value="1" [checked]="hobby==1">乒乓
+</div>
+<div *ngIf="sex==0">
+  <input type="checkbox" name="hobby" value="0" [checked]="hobby==0">逛街
+  <input type="checkbox" name="hobby" value="1" [checked]="hobby==1">看电影
+</div>
+<!-- [ngClass]="{'redBorder':sex==0,'blueFont':sex==0}" -->
+<!-- [ngStyle]="{'color':sex==0?'red':'blue'}" -->
+<!-- <select name="project" [(ngModel)]="projectKey">
+  <option value="">请选择</option>
+  <option value="0">wms</option>
+  <option value="1">oms</option>
+</select> -->
+<select name="project" [(ngModel)]="projectKey">
+  <option value="-1">请选择</option>
+  <option *ngFor="let item of projectArray" [value]="item.id">
+    {{item.name}}
+  </option> 
+</select>
+
+1cm = {{1|unitToInch}}inch
+<div >
+  <ul class="menu">
+    <li><a href="/bootstrap"> ng-bootstrap </a></li>
+    <li><a href="/lazyload/datetimer"> 日期控件 </a></li>
+    <li><a href="/lazyload/modal"> 模态框 </a></li>
+  </ul>
+</div>
+<div>
+    <router-outlet></router-outlet>
+</div>

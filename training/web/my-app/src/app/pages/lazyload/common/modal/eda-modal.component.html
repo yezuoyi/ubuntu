@@ -1,0 +1,42 @@
+<div bsModal #edaModal="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content"
+             [ngStyle]="{'width': width ?width+'px':auto,
+                            'height': height?height+'px':auto,
+                            'margin-left':width?width/2+'px':auto,
+                            'top':top?top+'px':0}">
+            <div class="modal-header" *ngIf="title">
+                <button type="button" class="close" aria-label="Close" (click)="hide()" *ngIf="showCloseBtn">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    {{title}}
+                </h4>
+            </div>
+            <div class="modal-body">
+                <button type="button" class="close" aria-label="Close" (click)="hide()" *ngIf="!title  && showCloseBtn">
+                    &times;
+                </button>
+                <ng-content select=".body"></ng-content>
+            </div>
+            <div class="modal-footer" *ngIf="confirmName || cancelName">
+                <div style="float: left;color:#D31212;text-align: left;">
+                    <ng-content select=".errormsg"></ng-content>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="confirm()" *ngIf="confirmName">
+                    {{confirmName}}
+                </button>
+                <button type="button" class="btn btn-primary" (click)="hide()" *ngIf="cancelName">
+                    {{cancelName}}
+                </button>
+               <!-- <button type="button" class="btn btn-primary" (click)="confirm()" *ngIf="confirmName==''">
+                    {{'outbound.waveExecution.confirm'|translate}}
+                </button>
+                <button type="button" class="btn btn-primary" (click)="hide()">
+                    {{'outbound.waveExecution.cancel'|translate}}
+                </button>-->
+            </div>
+        </div>
+    </div>
+</div>

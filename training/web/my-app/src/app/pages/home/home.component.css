@@ -1,0 +1,11 @@
+header,footer{
+    height: 30px;
+    margin: 0 auto;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+section{
+    margin: 20px;
+}

@@ -1,0 +1,22 @@
+<div style="margin: 20px">
+    学习网站：https://valor-software.com/ngx-bootstrap
+
+    <alert type="success">
+        <strong>Well done!</strong> You successfully read this important alert message.
+    </alert>
+
+    <tabset>
+        <tab heading="A" (select)="selectTabA()">
+            <div class="card card-block">
+                <input type="text" value="内容" (select)="selectInput($event)">
+            </div>
+        </tab>
+    </tabset>
+
+
+<!--   <input ngui-auto-complete
+  [(ngModel)]="model1"
+  [source]="arrayOfStrings"
+  placeholder="enter text"/>
+<p><b>model1</b>: {{ model1 | json }} -->
+</div>
