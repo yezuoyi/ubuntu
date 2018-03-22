@@ -1,0 +1,3 @@
+git checkout -b develop -t remote/origin/develop
+
+git checkout -d remote/origin/develop
