@@ -1,0 +1,168 @@
+pgrep java | xargs ps -u --pid  查看所有java进程,使用情况
+
+sudo visudo
+
+eclipse android 开发
+2.eclipse 添加adt https://blog.csdn.net/df981011512/article/details/78965757
+Add Repository界面中插件名称name可以自定义，我这里定义为：ADT，插件地址location为：http://dl-ssl.google.com/android/eclipse或https://dl-ssl.google.com/android/eclipse，点击OK。
+
+
+android 异步下载
+
+Android Asynchronous Http Client
+A Callback-Based Http Client Library for Android
+https://loopj.com/android-async-http/
+
+
+maven 创建工程
+
+创建Maven的Web项目：mvn archetype:generate -DgroupId=packageName -DartifactId=webappName -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false
+创建Maven的普通java项目：mvn archetype:generate -DgroupId=packageName -DartifactId=projectName -DinteractiveMode=false
+
+
+RabbitMq 原理
+https://blog.csdn.net/whoamiyang/article/details/54954780
+https://blog.csdn.net/rickey17/article/details/72756766/
+[businessNum:9633, url:http://172.16.2.183/download/img/1.png]
+
+查看端口：  lsof -i:8600
+
+mysql增加一列
+alter table TABLE_NAME add column NEW_COLUMN_NAME varchar(20) not null;
+
+//原来有问题的 
+-javaagent:/home/yzy/eclipse/jee-oxygen/eclipse/lombok.jar
+
+//正确的
+-javaagent:lombok.jar
+-Xbootclasspath/a:lombok.jar
+
+//mvn 找不到主类
+	<build>
+		<defaultGoal>compile</defaultGoal>
+	</build>
+
+
+一、查看远程分支
+使用如下git命令查看所有远程分支：
+git branch -r
+二、拉取远程分支并创建本地分支
+方法一
+使用如下命令：
+git checkout -b 本地分支名x origin/远程分支名x
+使用该方式会在本地新建分支x，并自动切换到该本地分支x。
+
+git merge命令用于合并指定分支到当前分支。合并后，再查看readme.txt的内容，就可以看到，和dev分支的最新提交是完全一样的。
+
+@Restfulcontroller  @controller
+https://dzone.com/articles/spring-framework-restcontroller-vs-controller
+
+
+
+从.sql脚本导入数据到mysql
+mysql -uroot -p123456 -h172.18.2.14 --database omniv5_wms < 2017-05-26.sql 
+
+
+切换分支
+git checkout   -- 拉取所有的新分支
+git fetch
+git checkout . -- 忽略配置文件 
+git checkout release/wms-20180531  --切换新的分支
+
+
+https://github.com/kamalber/spring-boot-angular4-authentication.git
+
+
+
+cd /var/lib/dpkg
+sudo mv info info.bak #即备份一个info
+sudo mkdir info #新建一个新的info目录
+然后采用以下命令重装那些出错的软件包
+sudo apt-get –reinstall install 软件包名
+开始我是想在一条命令中同时安装几个软件包，结果还是出现E: Sub-process /usr/bin/dpkg returned an error code (1) 。于是把新的info删掉，一个个地来安装，每装好一个软件包，就把info删掉，再新建一个，这样就没有提示E: Sub-process /usr/bin/dpkg returned an error code (1) 了。
+最后用原来的info.bak 替换新的info
+sudo -rf info
+sudo mv info.bak info
+之后输入 sudo apt-get update 和 sudo apt-get upgrade 以及sudo apt-get autoremove 都不再有
+
+g++ -std=c++11 test.cpp `pkg-config --libs --cflags opencv` -o test
+
+https://blog.csdn.net/dalangzhonghangxing/article/details/51994812
+
+
+
+select *   from cop_workflow_instance where 
+exists (
+select 1 from outboundorder where createdDate>'2018-07-01' and orderStatus in  ('CANCELED','FINISH') and cop_workflow_instance.id = outboundorder.wfpid
+)
+
+
+#压缩
+tar -czvf ***.tar.gz
+tar -cjvf ***.tar.bz2
+#解压缩
+tar -xzvf ***.tar.gz
+tar -xjvf ***.tar.bz2
+
+
+jar 找不到主类
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>com.mkyong.common.App</mainClass>
+								</transformer>
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
+select i.productId, i.id as inventoryId,s.id as locationId,i.totalCount, s.locationUseType ,s.isHight,s.hightPickNo,s.pickNo 
+from inventory i,storagelocation s,storagelocationtype st,stockinventory si 
+			where  i.totalCount>0
+			and i.massType = 'LP'
+			and i.storageLocationId = s.id 
+			and s.locked = 0
+			and i.stockInventoryId = si.id 
+			and si.locked = 0 
+			and i.storagelocationtypeId = st.id
+			and st.areaCode!='TTX'
+			and i.productId in (364568)
+			
+
+
+终端显示路径太长的话：.bashrc  PS1 的小写w改为大写W
+
+  <ExtraData>
+      <ExtraDataItem name="GUI/LastCloseAction" value="PowerOff"/>
+      <ExtraDataItem name="GUI/LastNormalWindowPosition" value="49,24,1024,814"/>
+      <ExtraDataItem name="GUI/RestrictedRuntimeMachineMenuActions" value="SaveState"/>
+      <ExtraDataItem name="VBoxInternal/Devices/smc/0/Config/DeviceKey" value="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"/>
+    </ExtraData>
+
+
+
+
+远程服务器下载
+scp -P 22019 yezuoyi@121.201.34.46:/back/logs/wms-ms/catalina.out-20181025.gz .
+
+
+
+
