@@ -164,5 +164,13 @@ from inventory i,storagelocation s,storagelocationtype st,stockinventory si
 scp -P 22019 yezuoyi@121.201.34.46:/back/logs/wms-ms/catalina.out-20181025.gz .
 
 
+也可以使用lsof命令：
+
+lsof -i:8888
+
+若要关闭使用这个端口的程序，使用kill + 对应的pid
+
+kill -9 PID号
+
 
 
